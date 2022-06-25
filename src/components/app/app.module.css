@@ -1,0 +1,13 @@
+.page {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  max-width: 1280px;
+  display: grid;
+  grid-template-columns: repeat(2, 600px);
+  grid-gap: 61.5px;
+  margin: 0 auto;
+}

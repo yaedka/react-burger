@@ -1,0 +1,32 @@
+.item {
+  position: relative;
+  list-style-type: none;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  width: 272px;
+  height: 208px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.currencyIcon {
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.cardsblock {
+  display: grid;
+  grid-template-columns: repeat(2, 272px);
+  grid-gap: 24px;
+}
