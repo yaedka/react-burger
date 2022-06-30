@@ -1,4 +1,29 @@
-.componentlist {
+.components {
+ display: flex;
+ flex-direction: column;
+ gap: 10px
+}
+.components > div:first-child{
+  margin-left: 35px;
+}
+
+.components > div:last-child{
+  margin-left: 35px;
+}
+
+.componentItem {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+li > svg {
+  cursor: pointer;
+}
+
+.componentList {
   display: grid;
   grid-gap: 15px;
   list-style-type: none;

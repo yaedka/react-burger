@@ -6,7 +6,6 @@ import styles from "./app.module.css";
 
 function App() {
   return (
-    <>
       <div className={styles.page}>
         <AppHeader />
         <main className={styles.content}>
@@ -14,7 +13,6 @@ function App() {
           <BurgerConstructor />
         </main>
       </div>
-    </>
   );
 }
 

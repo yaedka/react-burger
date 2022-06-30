@@ -1,6 +1,8 @@
 import styles from "./ingredients-category.module.css";
 import { CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 
+import { dataTypes } from "../../utils/const";
+
 export default function IngredientsCategory({ title, ingredients, id }) {
   return (
     <>
@@ -9,7 +11,7 @@ export default function IngredientsCategory({ title, ingredients, id }) {
       </h2>
       <div className={styles.cardsblock}>
         {ingredients.map((item, index) => (
-          <ul className={styles.item} key={index}>
+          <ul className={styles.item} key={item._id}>
             <li>
               <img src={item.image} alt={item.name} />
             </li>
@@ -30,3 +32,9 @@ export default function IngredientsCategory({ title, ingredients, id }) {
     </>
   );
 }
+
+
+IngredientsCategory.propTypes = {
+  data: dataTypes,
+};
+
