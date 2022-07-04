@@ -1,14 +1,15 @@
 @import url("../../fonts/fonts/fonts.css");
 
 .optionselection {
-  display: flex;
-  margin: 20px 0 0 0;
-  width: 62.15%;
+  margin: 20px 0;
   font-family: "JetBrains";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
 }
 
 .options {

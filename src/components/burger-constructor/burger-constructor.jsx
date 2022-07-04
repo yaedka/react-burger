@@ -1,20 +1,22 @@
 import { ConstructorElement } from "@ya.praktikum/react-developer-burger-ui-components";
 import { CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import { Button } from "@ya.praktikum/react-developer-burger-ui-components";
+import { DragIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 
 import styles from "./burger-constructor.module.css";
 
 import { data } from "../../utils/data";
 
-const mainArrItems = data.filter((item) => item.type == "main");
+import { dataTypes } from "../../utils/const";
+
+const mainArrItems = data.filter((item) => item.type == "main" || item.type == "sauce");
 const ingredients = Array.from(mainArrItems);
 const bunName = Array.from(data.filter((el) => el.type === "bun"))[0];
 
 function BurgerConstructor() {
   return (
-    <>
       <section className="burgerConstructor mt-25">
-        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+        <div className={styles.components}>
           <ConstructorElement
             type="top"
             isLocked={true}
@@ -23,9 +25,10 @@ function BurgerConstructor() {
             thumbnail={bunName.image}
           />
 
-          <ul className={styles.componentlist}>
+          <ul className={styles.componentList}>
             {ingredients.map((item, index) => (
-              <li key={index}>
+              <li key={item._id} className={styles.componentItem}>
+                <DragIcon type="primary"/>
                 <ConstructorElement
                   text={item.name}
                   price={item.price}
@@ -56,8 +59,11 @@ function BurgerConstructor() {
           </div>
         </div>
       </section>
-    </>
   );
 }
 
 export default BurgerConstructor;
+
+BurgerConstructor.propTypes = {
+  data: dataTypes,
+};

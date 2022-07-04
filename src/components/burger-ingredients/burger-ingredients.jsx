@@ -4,6 +4,7 @@ import styles from "./burger-ingredients.module.css";
 import IngredientsCategory from "../ingredients-category/ingredients-category";
 
 import { data } from "../../utils/data";
+import { dataTypes } from "../../utils/const";
 
 function BurgerIngredients() {
   const bunsArr = data.filter((el) => el.type === "bun");
@@ -11,11 +12,10 @@ function BurgerIngredients() {
   const sauceArr = data.filter((el) => el.type === "sauce");
 
   return (
-    <>
       <section className="burgerIngredients">
         <p className="text text_type_main-large">Соберите бургер</p>
         <div className={styles.optionselection}>
-          <Tab>Булки</Tab>
+          <Tab active>Булки</Tab>
           <Tab>Соусы</Tab>
           <Tab>Начинки</Tab>
         </div>
@@ -35,8 +35,12 @@ function BurgerIngredients() {
           />
         </section>
       </section>
-    </>
   );
 }
 
 export default BurgerIngredients;
+
+BurgerIngredients.propTypes = {
+  data: dataTypes,
+};
+
