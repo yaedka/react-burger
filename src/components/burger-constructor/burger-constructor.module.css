@@ -1,0 +1,51 @@
+.components {
+ display: flex;
+ flex-direction: column;
+ gap: 10px
+}
+.components > div:first-child{
+  margin-left: 35px;
+}
+
+.components > div:last-child{
+  margin-left: 35px;
+}
+
+.componentItem {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+li > svg {
+  cursor: pointer;
+}
+
+.componentList {
+  display: grid;
+  grid-gap: 15px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 464px;
+  overflow-y: scroll;
+}
+
+.button {
+  margin-left: 40px;
+}
+
+.text {
+  margin-right: 9.5px;
+}
+
+.totalSum {
+  display: flex;
+  flex-direction: row;
+  width: 536px;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-end;
+}
