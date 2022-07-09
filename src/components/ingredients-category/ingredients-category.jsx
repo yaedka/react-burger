@@ -8,25 +8,16 @@ import PropTypes from "prop-types";
 import Modal from "../modal/modal";
 import IngredientsDetails from "../ingredients-details/ingredients-details";
 
-function IngredientsCategory({item}) {
+function IngredientsCategory({ item }) {
   const [isIngredientsDetailsOpened, setIsIngredientsDetailsOpened] =
     React.useState(false);
-
-  const openModal = () => {
-    setIsIngredientsDetailsOpened(true);
-  };
-
-  const closeAllModals = () => {
-    setIsIngredientsDetailsOpened(false);
-  };
-
-  const handleEscKeydown = (event) => {
-    event.key === "Escape" && closeAllModals();
-  };
-
   return (
     <>
-      <ul className={styles.item} key={item._id} onClick={openModal}>
+      <ul
+        className={styles.item}
+        key={item._id}
+        onClick={() => setIsIngredientsDetailsOpened(true)}
+      >
         <li>
           <img src={item.image} alt={item.name} />
         </li>
@@ -45,8 +36,7 @@ function IngredientsCategory({item}) {
       {isIngredientsDetailsOpened && (
         <Modal
           title="Детали ингридиента"
-          onOverlayClick={closeAllModals}
-          onEscKeyDown={handleEscKeydown}
+          onClose={() => setIsIngredientsDetailsOpened(false)}
         >
           <IngredientsDetails item={item} />
         </Modal>

@@ -17,18 +17,6 @@ import OrderDetails from "../order-details/order-details";
 function BurgerConstructor({ data }) {
   const [isOrderDetailsOpened, setIsOrderDetailsOpened] = React.useState(false);
 
-  const openModal = () => {
-    setIsOrderDetailsOpened(true);
-  };
-
-  const closeAllModals = () => {
-    setIsOrderDetailsOpened(false);
-  };
-
-  const handleEscKeydown = (event) => {
-    event.key === "Escape" && closeAllModals();
-  };
-
   const mainArrItems = data.filter(
     (item) => item.type == "main" || item.type == "sauce"
   );
@@ -74,13 +62,17 @@ function BurgerConstructor({ data }) {
         </div>
         <CurrencyIcon type="primary" className="mr-10" />
         <div className={styles.button}>
-          <Button type="primary" size="medium" onClick={openModal}>
+          <Button
+            type="primary"
+            size="medium"
+            onClick={() => setIsOrderDetailsOpened(true)}
+          >
             Оформить заказ
           </Button>
         </div>
       </div>
       {isOrderDetailsOpened && (
-        <Modal onOverlayClick={closeAllModals} onEscKeyDown={handleEscKeydown}>
+        <Modal onClose={() => setIsOrderDetailsOpened(false)}>
           <OrderDetails />
         </Modal>
       )}
