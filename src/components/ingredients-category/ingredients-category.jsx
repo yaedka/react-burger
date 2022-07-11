@@ -1,40 +1,52 @@
+import React from "react";
+
 import styles from "./ingredients-category.module.css";
 import { CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 
-import { dataTypes } from "../../utils/const";
+import PropTypes from "prop-types";
 
-export default function IngredientsCategory({ title, ingredients, id }) {
+import Modal from "../modal/modal";
+import IngredientsDetails from "../ingredients-details/ingredients-details";
+
+function IngredientsCategory({ item }) {
+  const [isIngredientsDetailsOpened, setIsIngredientsDetailsOpened] =
+    React.useState(false);
   return (
     <>
-      <h2 id={id} className="text text_type_main-medium m-10">
-        {title}
-      </h2>
-      <div className={styles.cardsblock}>
-        {ingredients.map((item, index) => (
-          <ul className={styles.item} key={item._id}>
-            <li>
-              <img src={item.image} alt={item.name} />
-            </li>
-            <li
-              className={
-                styles.currencyIcon + " " + "text text_type_digits-default"
-              }
-            >
-              <span>
-                <CurrencyIcon type="primary" />
-              </span>
-              {item.price}
-            </li>
-            <li className="text text_type_main-default">{item.name}</li>
-          </ul>
-        ))}
-      </div>
+      <ul
+        className={styles.item}
+        key={item._id}
+        onClick={() => setIsIngredientsDetailsOpened(true)}
+      >
+        <li>
+          <img src={item.image} alt={item.name} />
+        </li>
+        <li
+          className={
+            styles.currencyIcon + " " + "text text_type_digits-default"
+          }
+        >
+          <span>
+            <CurrencyIcon type="primary" />
+          </span>
+          {item.price}
+        </li>
+        <li className="text text_type_main-default">{item.name}</li>
+      </ul>
+      {isIngredientsDetailsOpened && (
+        <Modal
+          title="Детали ингридиента"
+          onClose={() => setIsIngredientsDetailsOpened(false)}
+        >
+          <IngredientsDetails item={item} />
+        </Modal>
+      )}
     </>
   );
 }
 
+export default IngredientsCategory;
 
 IngredientsCategory.propTypes = {
-  data: dataTypes,
+  item: PropTypes.object.isRequired,
 };
-

@@ -18,3 +18,9 @@
   overflow-y: scroll;
   scrollbar-color: #8585ad;
 }
+
+.cardsblock {
+  display: grid;
+  grid-template-columns: repeat(2, 272px);
+  grid-gap: 24px;
+}
